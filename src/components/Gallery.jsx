@@ -29,6 +29,19 @@ const TourList = ({tours, setTours, onRemove}) => {
         fetchTours();
     }, [])
 
+    // Renders loading state
+    if (loading) {
+        return <h2>Loading...</h2>
+    };
+    // Render error state
+    if (error) {
+        return <h2>Something went wrong...</h2>
+    }; // Render if no tours remain
+    if (tours.length === 0) {
+        return <h2>No tours left.</h2>;
+        <button onClick={fetchBooks}>Refresh</button>
+    }
+    
     // Render the list of TourCards
     return (
         <section className="tour-list">
