@@ -10,7 +10,7 @@ const TourList = ({tours, setTours, onRemove}) => {
     // Function to fetch tours from API
     const fetchTours = async () => {
         try {
-            const response = await fetch("https://course-api.com/react-tours-project")
+            const response = await fetch("https://api.allorigins.win/raw?url=https://course-api.com/react-tours-project") // Fetches data from API
             if (!response.ok) { // If response is not ok -> throws error message
                 throw new Error("Failed to fetch tours.")
             }
@@ -28,19 +28,6 @@ const TourList = ({tours, setTours, onRemove}) => {
     useEffect(() => {
         fetchTours();
     }, [])
-
-    // Render loading state
-    if (loading) {
-        return <h2>Loading...</h2>
-    };
-    // Render error state
-    if (error) {
-        return <h2>Something went wrong...</h2>
-    }; // Render if no tours remain
-    if (tours.length === 0) {
-        return <h2>No tours left.</h2>;
-        <button onClick={fetchBooks}>Refresh</button>
-    }
 
     // Render the list of TourCards
     return (
