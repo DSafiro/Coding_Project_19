@@ -1,7 +1,8 @@
-import React, {useState} from "react"; // Imports react and state
+import React, { useState } from "react"; // Imports react and state
 import Gallery from "./components/Gallery"; // Imports gallery from components
+import "./styles/styles.css";
 
-// Root compoennts of the app
+// Root component of the app
 function App() {
   // Global state to hold the list of tours
   const [tours, setTours] = useState([]);
@@ -12,12 +13,14 @@ function App() {
   };
 
   return (
-    <main>
-      <h1>Tour Explorer</h1>
-      {/* Pass state and handlers down to the gallery component */}
-      <Gallery tours={tours} setTours={setTours} onRemove={removeTour}/>
+    <main className="container">
+      <div className="card">
+        <h1>Tour Explorer</h1>
+        {/* Pass state and handlers down to the gallery component */}
+        <Gallery tours={tours} setTours={setTours} onRemove={removeTour} />
+      </div>
     </main>
   );
-};
+}
 
 export default App; // Exports app
